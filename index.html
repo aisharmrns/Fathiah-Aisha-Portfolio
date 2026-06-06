@@ -8,45 +8,7 @@
     <!-- FontAwesome for Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<script>
-document.addEventListener("DOMContentLoaded", function () {
-    const imageWrappers = document.querySelectorAll("#experience .exp-img-wrapper.multi-images");
 
-    imageWrappers.forEach(function (wrapper) {
-        const slider = document.createElement("div");
-        slider.className = "image-slider";
-
-        const leftButton = document.createElement("button");
-        leftButton.className = "slider-arrow left";
-        leftButton.setAttribute("aria-label", "Previous image");
-        leftButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
-
-        const rightButton = document.createElement("button");
-        rightButton.className = "slider-arrow right";
-        rightButton.setAttribute("aria-label", "Next image");
-        rightButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
-
-        wrapper.parentNode.insertBefore(slider, wrapper);
-        slider.appendChild(wrapper);
-        slider.appendChild(leftButton);
-        slider.appendChild(rightButton);
-
-        leftButton.addEventListener("click", function () {
-            wrapper.scrollBy({
-                left: -wrapper.clientWidth,
-                behavior: "smooth"
-            });
-        });
-
-        rightButton.addEventListener("click", function () {
-            wrapper.scrollBy({
-                left: wrapper.clientWidth,
-                behavior: "smooth"
-            });
-        });
-    });
-});
-</script>
 <body>
 
     <!-- Navigation Bar -->
@@ -364,7 +326,8 @@ document.addEventListener("DOMContentLoaded", function () {
                             </a>
                         </div>
                     </div>
-                    
+                </div>
+                
                 <div class="exp-card">
                     <div class="exp-img-wrapper multi-images">
                         <!-- EDIT THESE: Replace with your actual D.R.O.N.E 1.0 photo filenames -->
@@ -662,5 +625,55 @@ document.addEventListener("DOMContentLoaded", function () {
         <p>&copy; 2026 Nur Fathiah Aisha. All Rights Reserved.</p>
     </footer>
 
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const imageWrappers = document.querySelectorAll("#experience .exp-img-wrapper.multi-images");
+
+    imageWrappers.forEach(function (wrapper) {
+        const images = wrapper.querySelectorAll(".exp-img");
+
+        // Only add arrows when the card has more than one image
+        if (images.length <= 1 || wrapper.closest(".image-slider")) return;
+
+        const slider = document.createElement("div");
+        slider.className = "image-slider";
+
+        const leftButton = document.createElement("button");
+        leftButton.type = "button";
+        leftButton.className = "slider-arrow left";
+        leftButton.setAttribute("aria-label", "Previous image");
+        leftButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+
+        const rightButton = document.createElement("button");
+        rightButton.type = "button";
+        rightButton.className = "slider-arrow right";
+        rightButton.setAttribute("aria-label", "Next image");
+        rightButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+
+        wrapper.parentNode.insertBefore(slider, wrapper);
+        slider.appendChild(wrapper);
+        slider.appendChild(leftButton);
+        slider.appendChild(rightButton);
+
+        function updateArrowState() {
+            const maxScroll = wrapper.scrollWidth - wrapper.clientWidth;
+            leftButton.disabled = wrapper.scrollLeft <= 5;
+            rightButton.disabled = wrapper.scrollLeft >= maxScroll - 5;
+        }
+
+        leftButton.addEventListener("click", function () {
+            wrapper.scrollBy({ left: -wrapper.clientWidth, behavior: "smooth" });
+        });
+
+        rightButton.addEventListener("click", function () {
+            wrapper.scrollBy({ left: wrapper.clientWidth, behavior: "smooth" });
+        });
+
+        wrapper.addEventListener("scroll", updateArrowState);
+        window.addEventListener("resize", updateArrowState);
+        updateArrowState();
+    });
+});
+</script>
 </body>
 </html>
