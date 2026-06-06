@@ -992,3 +992,24 @@ footer {
         height: 34px;
     }
 }
+
+
+#working-experience .volunteer-card {
+    border-left: 5px solid var(--primary-color);
+}
+
+#working-experience .volunteer-date {
+    color: var(--primary-color);
+}
+
+#working-experience .volunteer-org-tag {
+    background: #e6f2ff;
+    color: var(--primary-color);
+}
+
+@media (max-width: 850px) {
+    #working-experience .volunteer-card {
+        border-left: none;
+        border-top: 5px solid var(--primary-color);
+    }
+}
