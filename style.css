@@ -1,0 +1,942 @@
+/* ==========================================================================
+   1. Core Reset & Variable Definition
+   ========================================================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    scroll-behavior: smooth;
+}
+
+:root {
+    --primary-color: #0077b6;
+    --secondary-color: #00b4d8;
+    --dark-color: #1d3557;
+    --light-color: #f4f6f9;
+    --text-color: #333333;
+    --gray-text: #666666;
+}
+
+body {
+    color: var(--text-color);
+    line-height: 1.6;
+    background-color: #ffffff;
+}
+
+.container {
+    width: 85%;
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section {
+    padding: 80px 0;
+}
+
+.bg-light {
+    background-color: var(--light-color);
+}
+
+.bg-dark {
+    background-color: var(--dark-color);
+    color: #ffffff;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 50px;
+    position: relative;
+    color: var(--dark-color);
+}
+
+.section-title::after {
+    content: '';
+    width: 60px;
+    height: 4px;
+    background-color: var(--primary-color);
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.text-light {
+    color: #ffffff !important;
+}
+
+/* ==========================================================================
+   2. Sticky Navigation Bar
+   ========================================================================== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #ffffff;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+    z-index: 1000;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 85%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px 0;
+}
+
+.logo {
+    font-size: 1.8rem;
+    font-weight: 700;
+    text-decoration: none;
+    color: var(--dark-color);
+}
+
+.logo span {
+    color: var(--primary-color);
+}
+
+.nav-links {
+    display: flex;
+    list-style: none;
+}
+
+.nav-links li {
+    margin-left: 25px;
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   3. Hero Section & Profile Photo Alignment
+   ========================================================================== */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #e6f2ff 0%, #ffffff 100%);
+    padding: 120px 0 60px 0;
+}
+
+.hero-container {
+    width: 85%;
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 50px;
+}
+
+.hero-content {
+    flex: 1;
+}
+
+.hero h1 {
+    font-size: 3.5rem;
+    color: var(--dark-color);
+    margin-bottom: 10px;
+    line-height: 1.2;
+}
+
+.highlight {
+    color: var(--primary-color);
+}
+
+.hero h2 {
+    font-size: 1.8rem;
+    color: var(--gray-text);
+    margin-bottom: 20px;
+    font-weight: 400;
+}
+
+.hero p {
+    font-size: 1.1rem;
+    margin-bottom: 30px;
+    color: #4a5568;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+}
+
+.profile-pic {
+    width: 320px;
+    height: 320px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 8px solid #ffffff;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+}
+
+.btn {
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.primary-btn {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    margin-right: 15px;
+}
+
+.primary-btn:hover {
+    background-color: #005f94;
+    transform: translateY(-2px);
+}
+
+.secondary-btn {
+    border: 2px solid var(--primary-color);
+    color: var(--primary-color);
+}
+
+.secondary-btn:hover {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    transform: translateY(-2px);
+}
+
+.social-icons {
+    margin-top: 30px;
+}
+
+.social-icons a {
+    font-size: 1.8rem;
+    color: var(--dark-color);
+    margin-right: 20px;
+    transition: color 0.3s;
+}
+
+.social-icons a:hover {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   4. About & Education Layouts
+   ========================================================================== */
+.about-text {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+    font-size: 1.15rem;
+}
+
+.about-text p {
+    margin-bottom: 20px;
+}
+
+.timeline {
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    border-left: 3px solid var(--secondary-color);
+    padding-left: 30px;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 40px;
+}
+
+.timeline-item::before {
+    content: '';
+    width: 16px;
+    height: 16px;
+    background-color: var(--primary-color);
+    border-radius: 50%;
+    position: absolute;
+    left: -39px;
+    top: 5px;
+}
+
+.timeline-date {
+    font-weight: 700;
+    color: var(--primary-color);
+    margin-bottom: 5px;
+}
+
+.timeline-content h3 {
+    font-size: 1.4rem;
+    color: var(--dark-color);
+}
+
+.timeline-content h4 {
+    font-size: 1.1rem;
+    color: var(--gray-text);
+    margin-bottom: 10px;
+}
+
+.timeline-content i {
+    color: #ffb703;
+    margin-right: 5px;
+}
+
+/* ==========================================================================
+   5. Stabilized Academic Projects Layout
+   ========================================================================== */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.project-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    transition: transform 0.3s, box-shadow 0.3s;
+    border-top: 4px solid var(--secondary-color);
+    display: flex;
+    flex-direction: column;
+    padding: 25px;
+    overflow: hidden; 
+    gap: 12px;        
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+}
+
+.project-image-container {
+    width: 100%;
+    height: 180px;      
+    overflow: hidden;    
+    border-radius: 4px;
+    background-color: #f0f4f8; 
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;   
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.04); 
+}
+
+.project-card h3 {
+    font-size: 1.3rem;
+    color: var(--dark-color);
+}
+
+.project-year {
+    font-size: 0.9rem;
+    color: var(--gray-text);
+    font-weight: 600;
+    margin-top: -4px;
+}
+
+.project-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    flex-grow: 1;        
+}
+
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.tech-tag {
+    display: inline-block;
+    background-color: #e6f2ff;
+    color: var(--primary-color);
+    padding: 4px 10px;
+    font-size: 0.8rem;
+    border-radius: 4px;
+    font-weight: 600;
+}
+
+.project-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.95rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    transition: color 0.2s;
+    margin-top: auto;   
+}
+
+.project-link:hover {
+    color: var(--dark-color);
+}
+
+/* ==========================================================================
+   6. Skills Category Framework
+   ========================================================================== */
+.skills-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.skills-category {
+    background: #ffffff;
+    padding: 20px 25px;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.skills-category h3 {
+    color: var(--dark-color);
+    margin-bottom: 10px;
+    font-size: 1.2rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.skills-category h3 i {
+    color: var(--primary-color);
+}
+
+/* ==========================================================================
+   7. Stabilized Experience & Activities Layout
+   ========================================================================== */
+.exp-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.exp-card {
+    background: #ffffff;
+    border-radius: 8px;
+    overflow: hidden;    
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    display: flex;
+    flex-direction: column;
+}
+
+.exp-img-wrapper {
+    width: 100%;
+    height: 180px;      /* Standardizes activity images bounding field */
+    overflow: hidden;
+    display: flex;       /* Automatically arrays single or multiple images inline */
+}
+
+/* New specific rule for the card where you want a multi-photo gallery */
+.exp-img-wrapper.multi-images {
+    overflow-x: auto;            /* Enables a clean horizontal swipe/scroll bar for multiple images */
+    scroll-snap-type: x mandatory;/* Keeps scrolling snappy and locks perfectly onto individual images */
+    scroll-behavior: smooth;
+}
+
+/* Custom horizontal scrollbar formatting to keep it slim and professional */
+.exp-img-wrapper.multi-images::-webkit-scrollbar {
+    height: 6px;
+}
+.exp-img-wrapper.multi-images::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+.exp-img-wrapper.multi-images::-webkit-scrollbar-thumb {
+    background: var(--secondary-color);
+    border-radius: 4px;
+}
+
+.exp-img {
+    min-width: 100%;     /* Each image takes up exactly 100% of the container space before the next begins */
+    height: 100%;
+    object-fit: cover;   /* Fills container frame box seamlessly */
+    display: block;
+    scroll-snap-align: start; /* Locks alignment on swipe */
+    transition: transform 0.5s ease;
+}
+
+.exp-card:hover .exp-img {
+    transform: scale(1.02); /* Slight scale down so multi-images don't break clipping frames */
+}
+
+.exp-card:hover .exp-img {
+    transform: scale(1.04);
+}
+
+.exp-details-content {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.exp-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.exp-card h3 {
+    color: var(--dark-color);
+    font-size: 1.25rem;
+}
+
+.exp-card h4 {
+    font-weight: 500;
+    color: var(--gray-text);
+    margin-top: -2px;
+    font-size: 1rem;
+}
+
+.exp-card p {
+    font-size: 0.95rem;
+    color: #555555;
+    margin-bottom: 10px;
+}
+
+/* ==========================================================================
+   8. Contact & Footer Specifications
+   ========================================================================== */
+.contact-container {
+    text-align: center;
+}
+
+.contact-sub {
+    margin-bottom: 40px;
+    color: #ced4da;
+}
+
+.contact-details {
+    margin-bottom: 40px;
+}
+
+.contact-details p {
+    font-size: 1.2rem;
+    margin-bottom: 15px;
+}
+
+.contact-details i {
+    color: var(--secondary-color);
+    margin-right: 10px;
+}
+
+footer {
+    background-color: #111e30;
+    color: #a8dadc;
+    text-align: center;
+    padding: 20px 0;
+    font-size: 0.9rem;
+}
+
+/* ==========================================================================
+   9. Media Queries (Mobile & Tablet Responsiveness)
+   ========================================================================== */
+@media(max-width: 968px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 30px;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .profile-pic {
+        width: 240px;
+        height: 240px;
+    }
+    .hero p {
+        margin: 0 auto 30px auto;
+    }
+}
+
+/* ==========================================================================
+   10. Dedicated Volunteer Section Styling
+   ========================================================================== */
+.volunteer-wrapper {
+    max-width: 950px;
+    margin: 0 auto;
+}
+
+.volunteer-card {
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.04);
+    display: flex;
+    overflow: hidden;
+    border-left: 5px solid #2a9d8f; /* Sustainability Teal Accent */
+    transition: transform 0.3s ease;
+}
+
+.volunteer-card:hover {
+    transform: translateY(-3px);
+}
+
+/* Vertical grid that stacks multiple pictures straight down the center */
+.volunteer-img-container {
+    flex: 1;
+    min-width: 320px;
+    max-width: 380px;
+    background-color: #f0f4f8;
+    display: flex;
+    flex-direction: column; 
+    gap: 12px;               /* Adds clean, even spacing between your stacked pictures */
+    padding: 15px;           /* Gives pictures a clean framing gutter inside the card */
+}
+
+.volunteer-img {
+    width: 100%;
+    aspect-ratio: 16 / 9;   /* Enforces clean widescreen format ratio */
+    object-fit: cover;      /* Crops images seamlessly without squishing shapes */
+    display: block;
+    border-radius: 6px;     /* Smoothly rounds out the corners of your pictures */
+}
+
+.volunteer-content {
+    flex: 2;
+    padding: 35px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.volunteer-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 15px;
+}
+
+.volunteer-date {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: #2a9d8f;
+    display: block;
+    margin-bottom: 2px;
+}
+
+.volunteer-content h3 {
+    color: var(--dark-color);
+    font-size: 1.4rem;
+    line-height: 1.2;
+}
+
+.volunteer-content h4 {
+    color: var(--gray-text);
+    font-weight: 500;
+    font-size: 1.05rem;
+}
+
+.volunteer-org-tag {
+    background: #e8f5e9;
+    color: #2e7d32;
+    padding: 6px 14px;
+    font-size: 0.8rem;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+}
+
+.volunteer-desc {
+    font-size: 0.98rem;
+    color: #4a5568;
+    line-height: 1.6;
+    text-align: justify;
+}
+
+/* ==========================================================================
+   Mobile & Tablet Center Alignment Override
+   ========================================================================== */
+@media (max-width: 850px) {
+    .volunteer-card {
+        flex-direction: column;
+        border-left: none;
+        border-top: 5px solid #2a9d8f;
+        align-items: center;      /* Forces your card data straight down the page center axis */
+    }
+    
+    .volunteer-img-container {
+        max-width: 100%;
+        min-width: 100%;
+        margin: 0 auto;           /* Centers picture track inside the phone viewport bounds */
+    }
+    
+    .volunteer-header {
+        flex-direction: column;
+        gap: 10px;
+        text-align: center;       /* Centers main typography on phone screens */
+        align-items: center;
+    }
+    
+    .volunteer-org-tag {
+        align-self: center;       /* Centers the category label badge */
+    }
+    
+    .volunteer-content {
+        padding: 25px;
+        align-items: center;
+    }
+    
+    .volunteer-desc {
+        text-align: center;       /* Formats text alignment for mobile center viewing symmetry */
+    }
+}
+
+/* ==========================================================================
+   11. Certificates Category Layout
+   ========================================================================== */
+.cert-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 30px;
+}
+
+.cert-card {
+    background: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+    border: 1px solid #e2e8f0;
+    border-top: 4px solid var(--primary-color); /* Emphasizes corporate tech theme blue color */
+    padding: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    transition: transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1), box-shadow 0.3s ease;
+}
+
+.cert-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.08);
+}
+
+.cert-badge-icon {
+    width: 50px;
+    height: 50px;
+    background-color: #e6f2ff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cert-badge-icon i {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+}
+
+/* Specific brand brand kit adjustments */
+.cert-badge-icon .fa-google { color: #4285F4; }
+.cert-badge-icon .fa-microsoft { color: #F25022; }
+.cert-badge-icon .fa-shield-alt { color: #2a9d8f; }
+
+.cert-details {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    flex-grow: 1;
+}
+
+.cert-date {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--primary-color);
+}
+
+.cert-card h3 {
+    color: var(--dark-color);
+    font-size: 1.25rem;
+    line-height: 1.3;
+}
+
+.cert-card h4 {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: var(--gray-text);
+    margin-bottom: 4px;
+}
+
+.cert-card p {
+    font-size: 0.92rem;
+    color: #555555;
+    line-height: 1.5;
+    margin-bottom: 15px;
+    flex-grow: 1;
+}
+
+.cert-type-tag {
+    align-self: flex-start;
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    padding: 5px 12px;
+    font-size: 0.78rem;
+    border-radius: 4px;
+    font-weight: 600;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid #e2e8f0;
+    margin-top: auto; /* Locks tag base alignment at card baseline */
+}
+
+/* --- Styling for Certificate Verification Links --- */
+.cert-link {
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 12px;
+    margin-top: auto; /* Pushes the link item down so it sits right above the pill badge */
+    transition: color 0.2s ease-in-out;
+}
+
+.cert-link:hover {
+    color: var(--dark-color);
+}
+
+/* ==========================================================================
+   Mobile Navigation Fix
+   ========================================================================== */
+@media (max-width: 768px) {
+
+    .nav-container {
+        width: 90%;
+        padding: 14px 0;
+        flex-direction: column;
+        align-items: center;
+        gap: 12px;
+    }
+
+    .logo {
+        font-size: 2rem;
+        text-align: center;
+        line-height: 1.2;
+    }
+
+    .nav-links {
+        width: 100%;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        justify-content: flex-start;
+        gap: 22px;
+        padding-bottom: 8px;
+        white-space: nowrap;
+    }
+
+    .nav-links li {
+        margin-left: 0;
+        flex: 0 0 auto;
+    }
+
+    .nav-links a {
+        font-size: 1rem;
+    }
+
+    .hero {
+        padding-top: 180px;
+    }
+
+    .hero h1 {
+        font-size: 2.4rem;
+    }
+
+    .hero h2 {
+        font-size: 1.5rem;
+    }
+
+    .hero p {
+        font-size: 1rem;
+        padding: 0 10px;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        align-items: center;
+    }
+
+    .primary-btn {
+        margin-right: 0;
+    }
+
+    body {
+        overflow-x: hidden;
+    }
+}
+/* ==========================================================================
+   Image Slider Arrows for Experience & Activities
+   ========================================================================== */
+
+.image-slider {
+    position: relative;
+    width: 100%;
+}
+
+.slider-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 38px;
+    height: 38px;
+    border: none;
+    border-radius: 50%;
+    background-color: rgba(29, 53, 87, 0.85);
+    color: #ffffff;
+    font-size: 1rem;
+    cursor: pointer;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.slider-arrow:hover {
+    background-color: var(--primary-color);
+    transform: translateY(-50%) scale(1.08);
+}
+
+.slider-arrow.left {
+    left: 10px;
+}
+
+.slider-arrow.right {
+    right: 10px;
+}
+
+@media (max-width: 768px) {
+    .slider-arrow {
+        width: 32px;
+        height: 32px;
+        font-size: 0.85rem;
+    }
+
+    .slider-arrow.left {
+        left: 8px;
+    }
+
+    .slider-arrow.right {
+        right: 8px;
+    }
+}

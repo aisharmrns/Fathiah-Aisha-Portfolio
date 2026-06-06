@@ -1,0 +1,588 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nur Fathiah Aisha | Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const imageWrappers = document.querySelectorAll("#experience .exp-img-wrapper.multi-images");
+
+    imageWrappers.forEach(function (wrapper) {
+        const slider = document.createElement("div");
+        slider.className = "image-slider";
+
+        const leftButton = document.createElement("button");
+        leftButton.className = "slider-arrow left";
+        leftButton.setAttribute("aria-label", "Previous image");
+        leftButton.innerHTML = '<i class="fas fa-chevron-left"></i>';
+
+        const rightButton = document.createElement("button");
+        rightButton.className = "slider-arrow right";
+        rightButton.setAttribute("aria-label", "Next image");
+        rightButton.innerHTML = '<i class="fas fa-chevron-right"></i>';
+
+        wrapper.parentNode.insertBefore(slider, wrapper);
+        slider.appendChild(wrapper);
+        slider.appendChild(leftButton);
+        slider.appendChild(rightButton);
+
+        leftButton.addEventListener("click", function () {
+            wrapper.scrollBy({
+                left: -wrapper.clientWidth,
+                behavior: "smooth"
+            });
+        });
+
+        rightButton.addEventListener("click", function () {
+            wrapper.scrollBy({
+                left: wrapper.clientWidth,
+                behavior: "smooth"
+            });
+        });
+    });
+});
+</script>
+<body>
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">Fathiah Aisha<span>.</span></a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#volunteer">Volunteer</a></li>
+                <li><a href="#certificates">Certificates</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Profile Photo -->
+    <header class="hero">
+        <div class="hero-container">
+            <div class="hero-content">
+                <h1>Hi, I'm <span class="highlight">Nur Fathiah Aisha</span></h1>
+                <h2>Information Technology Student</h2>
+                <p>A disciplined, fast-learning IT student at Universiti Teknologi PETRONAS with a passion for software development, data analytics, and building practical digital solutions.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn primary-btn">View My Work</a>
+                    <a href="#contact" class="btn secondary-btn">Contact Me</a>
+                </div>
+                <div class="social-icons">
+                    <a href="https://www.linkedin.com/in/nur-fathiah-aisha-ramniza-6504063ab" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="mailto:nur_22011102@utp.edu.my"><i class="fas fa-envelope"></i></a>
+                </div>
+            </div>
+            
+            <!-- Profile Photo Area -->
+            <div class="hero-image">
+                <img src="aisha.jpg" alt="Nur Fathiah Aisha" class="profile-pic">
+            </div>
+        </div>
+    </header>
+
+    <!-- About Section -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-text">
+                <p>I am a motivated Information Technology student with a consistent Dean's List achievement and a strong interest in software development, database management, data analytics, and financial technology.</p>
+                <p>With strong problem-solving abilities and leadership exposure, I thrive on designing digital solutions that improve efficiency and user experience. I am currently seeking an internship opportunity from 7 September 2026 to 9 April 2027 to contribute meaningfully to real-world technology projects.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Education</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">Sept 2024 - Dec 2027 (Expected)</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor of Information Technology (Hons)</h3>
+                        <h4>Universiti Teknologi PETRONAS</h4>
+                        <p><strong>Minor:</strong> Corporate Management</p>
+                        <p><strong>Current CGPA:</strong> 3.89</p>
+                        <p><i class="fas fa-award"></i> Dean's List award for 6 consecutive semesters</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">Sept 2023 - Aug 2024</div>
+                    <div class="timeline-content">
+                        <h3>Foundation of Technology in Information Technology</h3>
+                        <h4>Universiti Teknologi PETRONAS</h4>
+                        <p><strong>Foundation CGPA:</strong> 3.98</p>
+                        <p><i class="fas fa-award"></i> Dean's List award for 3 consecutive semesters</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <div class="container">
+            <h2 class="section-title">Academic Projects</h2>
+            <div class="project-grid">
+                
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="ds.png" alt="Bank Prediction Model Analysis" class="project-img">
+                    </div>
+                    <h3>Bank Prediction Model</h3>
+                    <p class="project-year">2026</p>
+                    <p>Developed a predictive analytics model using R to analyse 5,000 banking records and identify target customers eligible for loan offers using machine learning techniques.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">R Programming</span>
+                        <span class="tech-tag">Machine Learning</span>
+                    </div>
+                    <a href="https://github.com/aisharmrns/JB-Bank-Project-Data-Science-" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="iot dashboard.jpeg" alt="Flight Monitoring System Dashboard" class="project-img">
+                    </div>
+                    <h3>IoT Flight Monitoring System</h3>
+                    <p class="project-year">2026</p>
+                    <p>Developed a flight tracking system with a real-time interactive dashboard and heat map features to identify potential flight danger zones.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">OpenSky API</span>
+                        <span class="tech-tag">Streamlit</span>
+                    </div>
+                    <a href="https://github.com/aisharmrns/Real-Time-Aircraft-Monitoring-System" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="ias.png" alt="Secure Enterprise Network Topology Diagram" class="project-img">
+                    </div>
+                    <h3>Secure Enterprise Network Design</h3>
+                    <p class="project-year">2025</p>
+                    <p>Designed and configured a secure multi-department enterprise network using Cisco Packet Tracer, integrating SSH, SNMP, and firewall rules.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Cisco Packet Tracer</span>
+                        <span class="tech-tag">Cybersecurity</span>
+                    </div> 
+                    <a href="https://github.com/aisharmrns/Multi-Branch-Enterprise-Network-Architecture" target="_blank" class="project-link"><i class="fab fa-github"></i> View Code Repository</a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="oop.png" alt="Attendance System UI" class="project-img">
+                    </div>
+                    <h3>Attendance Management System</h3>
+                    <p class="project-year">2025</p>
+                    <p>Developed a complete student and teacher attendance management application utilizing OOP concepts like inheritance and polymorphism.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">C#</span>
+                        <span class="tech-tag">Blazor Web App</span>
+                    </div>
+                    <a href="https://github.com/aisharmrns/Attendance-System-OOP-Project-" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="erd.png" alt="Vehicle Maintenance Database Schema" class="project-img">
+                    </div>
+                    <h3>Vehicle Maintenance Scheduling System</h3>
+                    <p class="project-year">2024</p>
+                    <p>Designed a relational database system normalized up to 3NF, establishing structural tracking for schedules, inventory, and invoices.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">SQL</span>
+                        <span class="tech-tag">Database Design</span>
+                    </div>
+                    <a href="https://github.com/aisharmrns/Vehicle-Database-Management-System" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="tapau.png" alt="UTP Cafeteria & Food Ordering System Interface" class="project-img">
+                    </div>
+                    <h3>UTP Cafeteria & Food Ordering System</h3>
+                    <p class="project-year">2025</p>
+                    <p>Designed and built a full-stack web application named 'TapauTime' to eliminate operational inefficiencies at the university cafeteria. Developed user registration/authentication, secure roles for customers and administrators, digital menu browsing with special food customization requests, and live multi-state order status tracking ("Preparing" to "Delivered"). Includes an offline fallback queue mechanism to guarantee order stability during unexpected campus network disruptions.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">PHP</span>
+                        <span class="tech-tag">MySQL (phpMyAdmin)</span>
+                        <span class="tech-tag">JavaScript</span>
+                        <span class="tech-tag">HTML5 / CSS3</span>
+                    </div>
+                    <a href="https://github.com/aisharmrns/Cafeteria-Food-Ordering-System" target="_blank" class="project-link"><i class="fab fa-github"></i> View Project Code</a>
+                </div>
+
+                <!-- Project 7 -->
+                <div class="project-card">
+                    <div class="project-image-container">
+                        <img src="tribagus.png" alt="Tribagus Hotel Booking Interface Mockup" class="project-img">
+                    </div>
+                    <h3>Tribagus Hotel Booking Platform (Redesign)</h3>
+                    <p class="project-year">2025</p>
+                    <p>Served as a core UX/UI engineer for a redesigned travel metasearch engine built entirely on HCI fundamentals to solve cluttered interfaces and non-transparent pricing. Programmed interactive architectures featuring predictive voice-to-text workflows ("I'm listening..." state feedback), context-aware persistent bottom menus, budget allocation metrics per country, and clear, color-coded multi-state confirmation paths.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Figma Prototyping</span>
+                        <span class="tech-tag">HCI Principles</span>
+                        <span class="tech-tag">UX/UI Research</span>
+                        <span class="tech-tag">Usability Testing</span>
+                    </div>
+                    <div style="margin-top: 15px; display: flex; flex-direction: column; gap: 8px;">
+                        <a href="https://www.figma.com/proto/wz81YiC6ntM3ykJBn6KN36/TRIBAGUS?node-id=590-5751&starting-point-node-id=590%3A5751&t=VmPWwIR3QsAwsB34-1" target="_blank" class="project-link">
+                            <i class="fab fa-figma"></i> View Figma Design Prototype
+                        </a>
+                        <a href="https://www.youtube.com/watch?v=5WRytTeJOvY" target="_blank" class="project-link">
+                            <i class="fab fa-youtube"></i> Watch Tribagus Interactive Demo
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Skills</h2>
+            <div class="skills-wrapper">
+                <div class="skills-category">
+                    <h3><i class="fas fa-code"></i> Programming</h3>
+                    <p>Python, R Programming, Data Visualization, C#, C++, SQL, MySQL, SQLite, PHP, HTML/CSS, JavaScript (Intermediate)</p>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-laptop-code"></i> Software & Tools</h3>
+                    <p>Cisco Packet Tracer, Visual Studio, SQLite, Streamlit, Arduino IDE, Microsoft Office, Figma</p>
+                </div>
+                <div class="skills-category">
+                    <h3><i class="fas fa-language"></i> Languages</h3>
+                    <p>Bahasa Melayu (Native), English (Fluent)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience & Activities Section with Photos -->
+    <section id="experience" class="section">
+
+        
+        <div class="container">
+            <h2 class="section-title">Experience & Activities</h2>
+            <div class="exp-grid">
+
+
+                <!-- Activity 1 (With Multiple Pictures) -->
+                <div class="exp-card">
+                    <!-- The wrapper now contains multiple images side-by-side -->
+                    <div class="exp-img-wrapper multi-images">
+                        <img src="ALLDRONE.JPG" alt="D.R.O.N.E 2.0 Snapshot 1" class="exp-img">
+                        <img src="DRONETY.jpg" alt="D.R.O.N.E 2.0 Snapshot 2" class="exp-img">
+                        <img src="droneteam.jpg" alt="D.R.O.N.E 2.0 Snapshot 3" class="exp-img">
+                        <img src="cert2.jpg" alt="D.R.O.N.E 2.0 Snapshot 3" class="exp-img">
+
+                    </div>
+                    <div class="exp-details-content">
+                        <span class="exp-date">April 2026</span>
+                        <h3>Secretary II</h3>
+                        <h4>D.R.O.N.E 2.0 STEM Outreach Programme</h4>
+                        <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 4px;">Role: Core Organizing Committee</p>
+                        <p>Prepared technical documentation including event proposals, final reports, and over 12 Minutes of Meeting documents. Supervised the Media Department.</p>
+                        <div class="tech-tags" style="margin-top: 10px;">
+                            <span class="tech-tag">Event Management</span>
+                            <span class="tech-tag">Technical Writing</span>
+                            <span class="tech-tag">Stakeholder Coordination</span>
+                            <span class="tech-tag">Team Leadership</span>
+                        </div>
+                        <a href="https://www.instagram.com/aeroxpert.utp?igsh=enN1OHZ4bGkyNWYy" target="_blank" class="project-link" style="margin-top: auto;">
+                            <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem;"></i> View AeroXpert Instagram
+                        </a>
+                    </div>
+                </div>
+
+                <div class="exp-card">
+                    <div class="exp-img-wrapper multi-images">
+                        <!-- EDIT THESE: Replace with your actual D.R.O.N.E 1.0 photo filenames -->
+                        <img src="drone1.JPG" alt="D.R.O.N.E 1.0 Event Snapshot" class="exp-img">
+                        <img src="drone2.JPG" alt="D.R.O.N.E 1.0 Committee Work" class="exp-img">
+                        <img src="drone3.jpeg" alt="D.R.O.N.E 1.0 Committee Work" class="exp-img">
+                        <img src="cert1.jpg" alt="D.R.O.N.E 2.0 Snapshot 3" class="exp-img">
+
+                    </div>
+                    <div class="exp-details-content">
+                        <span class="exp-date">March 2026</span>
+                        <h3>Secretary II</h3>
+                        <h4>D.R.O.N.E 1.0 STEM Outreach Programme</h4>
+                        <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 4px;">Role: Core Organizing Committee</p>
+                        <p>Responsible for coordinating documentation, managing meeting records, and facilitating communication among committee members throughout the planning and execution stages. Strengthened organizational skills, attention to detail, and group alignment while gaining valuable exposure to emerging drone technologies across various industries.</p>
+                        <div class="tech-tags" style="margin-top: auto; padding-top: 10px;">
+                            <span class="tech-tag">Documentation</span>
+                            <span class="tech-tag">Internal Communications</span>
+                            <span class="tech-tag">Attention to Detail</span>
+                            <span class="tech-tag">Collaboration</span>
+                        </div>
+                        <a href="https://www.instagram.com/aeroxpert.utp?igsh=enN1OHZ4bGkyNWYy" target="_blank" class="project-link" style="margin-top: auto;">
+                            <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem;"></i> View AeroXpert Instagram
+                        </a>
+                    </div>
+                </div>
+                
+                 <!-- Activity 3 -->
+                <div class="exp-card">
+                    <div class="exp-img-wrapper multi-images">
+                        <img src="hack.jpeg" alt="Microsoft Hackathon Team" class="exp-img">
+                        <img src="hack.jpg" alt="Microsoft Hackathon" class="exp-img">
+                        <img src="hackteam.jpg" alt="3" class="exp-img">
+                    </div>
+                    <div class="exp-details-content">
+                        <span class="exp-date">June 2025</span>
+                        <h3>Hackathon Participant</h3>
+                        <h4>Microsoft ASEAN AI for Accessibility (AI4A)</h4>
+                        <p>Collaborated with team 'InteLexis' to propose and pitch an AI-powered educational framework designed to assist individuals with dyslexia.</p>
+                        <div class="tech-tags" style="margin-top: 10px;">
+                            <span class="tech-tag">Generative AI</span>
+                            <span class="tech-tag">Design Thinking</span>
+                            <span class="tech-tag">User-Centered Design</span>
+                            <span class="tech-tag">Strategic Pitching</span>
+                        </div>
+                        <a href="https://canva.link/ymvaozgkorz8k0i" target="_blank" class="project-link" style="margin-bottom: 12px; margin-top: auto;">
+                            <i class="fas fa-palette"></i> View Canva Pitch Presentation
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Activity 2 -->
+                <div class="exp-card">
+                    <div class="exp-img-wrapper multi-images">
+                        <img src="tuto.jpg" alt="Math Tutoring Session" class="exp-img">
+                        <img src="tuto2.jpg" alt="Math Tutoring Session" class="exp-img">
+                        <img src="tuto3.jpg" alt="Math Tutoring Session" class="exp-img">
+                    </div>
+                    <div class="exp-details-content">
+                        <span class="exp-date">May 2025 - Aug 2025</span>
+                        <h3>Academic Tutor (Job On Campus)</h3>
+                        <h4>Universiti Teknologi PETRONAS</h4>
+                        <p>Provided weekly mathematics tutoring for foundation students, guiding them through complex calculations and problem-solving concepts.</p>
+                    </div>
+                </div>
+
+               <!-- Activity 8: UTP Rugby Championship 10's 2025 -->
+                <div class="exp-card">
+                    <div class="exp-img-wrapper multi-images">
+                        <img src="rugby.jpg" alt="UTP Rugby Championship 10's Event" class="exp-img">
+                        <img src="rugby2.jpg" alt="UTP Rugby Championship 10's Event" class="exp-img">
+                    </div>
+                    <div class="exp-details-content">
+                        <span class="exp-date">July 2025</span>
+                        <h3>Public Relations Committee Member</h3>
+                        <h4>UTP Rugby Championship 10's 2025</h4>
+                        <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 4px;">Focus: Stakeholder Engagement & Public Relations</p>
+                        
+                        <p>Managed critical external communications and stakeholder relations for a prominent university sports tournament. Partnered directly with more than 10 external school representatives to streamline tournament registration and participation logistics. Systematically monitored administrative workflows to ensure participant forms and entry payments were finalized before strict deadlines while maintaining responsive enquiry support lines.</p>
+                        
+                        <div class="tech-tags" style="margin-top: auto; padding-top: 10px;">
+                            <span class="tech-tag">Public Relations</span>
+                            <span class="tech-tag">External Communication</span>
+                            <span class="tech-tag">Stakeholder Engagement</span>
+                            <span class="tech-tag">Deadline Management</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Activity 4 -->
+                <div class="exp-card">
+                    <div class="exp-img-wrapper multi-images">
+                        <img src="kijang.jpg" alt="Kijang Economics Competition" class="exp-img">
+                        <img src="kijang1.jpg" alt="Kijang Economics Competition" class="exp-img">
+                        <img src="kijang2.jpg" alt="Kijang Economics Competition" class="exp-img">
+                    </div>
+                    <div class="exp-details-content">
+                        <span class="exp-date">June 2024</span>
+                        <h3>Participant</h3>
+                        <h4>Kijang Economics Competition (Upper Secondary Category)</h4>
+                        <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 4px;">Focus: Financial Literacy & Business Analysis</p>
+                        <p>Participated in a highly competitive national-level economics competition focused on entrepreneurship, financial literacy, and corporate systems. Applied structured economic reasoning and analytical problem-solving skills to evaluate how macro-economic principles influence real-world business decisions, asset markets, and national development.</p>
+                        <div class="tech-tags" style="margin-top: 10px;">
+                            <span class="tech-tag">Financial Literacy</span>
+                            <span class="tech-tag">Economic Reasoning</span>
+                            <span class="tech-tag">Analytical Thinking</span>
+                            <span class="tech-tag">Business Analysis</span>
+                        </div>
+                    </div>
+                </div>
+
+
+                <!-- Activity 6 -->
+                <div class="exp-card">
+                    <div class="exp-img-wrapper multi-images">
+                        <img src="masak.jpg" alt="FEXES 4.0 Food Vendor Booth" class="exp-img">
+                        <img src="masak2.jpg" alt="FEXES 4.0 Food Vendor Booth" class="exp-img">
+                        <img src="masak3.jpg" alt="FEXES 4.0 Food Vendor Booth" class="exp-img">
+                    </div>
+                    <div class="exp-details-content">
+                        <span class="exp-date">February 2024</span>
+                        <h3>Co-Founder & Operations Specialist of Sustainabites</h3>
+                        <h4>FEXES 4.0 Vendor Pop-Up (Business Management Coursework)</h4>
+                        <p style="font-weight: 600; color: var(--primary-color); margin-bottom: 4px;">Venue: Pocket C, UTP</p>
+                        <p>Co-managed a fast-paced student food venture selling 'Nasi Ayam Goreng Kunyit' during a high-traffic university pop-up market. Spearheaded end-to-end small business logistics including raw ingredient inventory monitoring, active meal preparation workflows, cash flow handling, and direct customer engagement to achieve group sales targets.</p>
+                        <div class="tech-tags" style="margin-top: 10px;">
+                            <span class="tech-tag">Entrepreneurship</span>
+                            <span class="tech-tag">Inventory Monitoring</span>
+                            <span class="tech-tag">Operations Management</span>
+                            <span class="tech-tag">Customer Relations</span>
+                        </div>
+                        <a href="https://www.instagram.com/sustainabites.utp?igsh=eDd3bzgyYjNpNTV5" target="_blank" class="project-link" style="margin-top: auto;">
+                            <i class="fab fa-instagram" style="color: #e1306c; font-size: 1.1rem;"></i> View Sustainabites Instagram
+                        </a>
+                    </div>
+
+                </div>
+
+                
+                
+            </div>
+        </div>
+    </section>
+    
+    <!-- Dedicated Volunteer Section -->
+    <section id="volunteer" class="section bg-light">
+        <div class="container">
+            <h2 class="section-title">Volunteer Experience</h2>
+            <div class="volunteer-wrapper">
+                <div class="volunteer-card">
+                    
+                    <!-- Centered Image Container Frame (Completely Static) -->
+                    <div class="volunteer-img-container">
+                        <img src="dte.jpg" alt="Down to Earth Eco Pioneers Group Outreach" class="volunteer-img">
+                        <img src="dte2.jpg" alt="Urban Gardening Activity" class="volunteer-img">
+                        <img src="dte3.jpg" alt="Tahfiz Students Interaction" class="volunteer-img">
+                    </div>
+                    
+                    <div class="volunteer-content">
+                        <div class="volunteer-header">
+                            <div>
+                                <span class="volunteer-date">2023</span>
+                                <h3>Logistics Committee Member</h3>
+                                <h4>"Down to Earth (DTE): Eco Pioneers" Community Programme</h4>
+                            </div>
+                            <span class="volunteer-org-tag">CSR & Sustainability</span>
+                        </div>
+                        
+                        <p class="volunteer-desc">
+                            Coordinated critical transportation logistics, asset distribution, and resource allocations for an environmental outreach initiative centered at Maahad Tahfiz Al-Quran Wal Qiraat Addin 12. Partnered with team members to proactively establish transportation routing plans and operational checkpoints one month prior to execution, safely managing transit resources for 37 tahfiz students. Cultivated practical insights into civic engagement, emergency adaptability, and structural project execution workflows.
+                        </p>
+
+                        <div class="tech-tags">
+                            <span class="tech-tag"><i class="fas fa-truck-loading"></i> Logistics Management</span>
+                            <span class="tech-tag"><i class="fas fa-tasks"></i> Operations Planning</span>
+                            <span class="tech-tag"><i class="fas fa-users"></i> Community Engagement</span>
+                            <span class="tech-tag"><i class="fas fa-seedling"></i> Environmental Awareness</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+<section id="certificates" class="section">
+        <div class="container">
+            <h2 class="section-title">Certifications</h2>
+            
+            <div class="cert-grid">
+                
+                <!-- Certificate 1: Gemini Certified Student -->
+                <div class="cert-card">
+                    <div class="cert-badge-icon">
+                        <i class="fab fa-google"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-date">Dec 2025 - Dec 2028</span>
+                        <h3>Gemini Certified Student</h3>
+                        <h4>Google for Education</h4>
+                        <p>Validated core competencies in utilizing Google Gemini and advanced Google AI tools. Focus areas include technical prompt engineering fundamentals, AI-assisted data productivity models, and responsible generative AI deployment frameworks for research workflows.</p>
+                        
+                        <a href="https://www.credential.net/3c01f234-9b17-466b-bac5-5963daa05678#acc.b1XYFtZe" target="_blank" class="cert-link">
+                            <i class="fas fa-external-link-alt"></i> Show Credential
+                        </a>
+                        
+                        <span class="cert-type-tag"><i class="fas fa-ribbon"></i> Professional Certification</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 3: Explore AI for All -->
+                <div class="cert-card">
+                    <div class="cert-badge-icon">
+                        <i class="fab fa-microsoft"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-date">May 2026</span>
+                        <h3>Explore AI for All</h3>
+                        <h4>Microsoft, Biji-biji Initiative & MEREKA (AI for MY Future)</h4>
+                        <p>Completed the foundational AI Fluency Pathway framework. Learned AI fundamentals, responsible AI practices, accessibility concepts, and the impact of AI across industries.</p>
+                        
+                        <a href="https://app.kajabi.com/certificates/7c282bd0" target="_blank" class="cert-link">
+                            <i class="fas fa-external-link-alt"></i> Show Credential
+                        </a>
+                        
+                        <span class="cert-type-tag"><i class="fas fa-award"></i> Badge of Completion</span>
+                    </div>
+                </div>
+
+                <!-- Certificate 4: AI Ready Malaysia: Student Edition -->
+                <div class="cert-card">
+                    <div class="cert-badge-icon">
+                        <i class="fas fa-brain"></i>
+                    </div>
+                    <div class="cert-details">
+                        <span class="cert-date">19 May 2026</span>
+                        <h3>AI Ready Malaysia: Student Edition</h3>
+                        <h4>AVPN & Pepper Labs (Supported by Google.org & ADB)</h4>
+                        <p>Completed 10 hours of intensive training covering AI Foundations, Generative AI applications, and Prompt Engineering. Gained critical insights into AI Governance, Safety, and Ethics while exploring future technologies like Agentic AI and Autonomous Systems.</p>
+                        
+                        <a href="https://pepper-s-site-1c7b.thinkific.com/certificates/vfxojcxavy" target="_blank" class="cert-link">
+                            <i class="fas fa-external-link-alt"></i> Show Credential
+                        </a>
+                        
+                        <span class="cert-type-tag"><i class="fas fa-certificate"></i> Intensive Training Completion</span>
+                    </div>
+                </div>
+
+            </div> <!-- End of cert-grid -->
+        </div> <!-- End of container -->
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section bg-dark">
+        <div class="container contact-container">
+            <h2 class="section-title text-light">Get In Touch</h2>
+            <p class="contact-sub">Available for internships from September 2026 to April 2027. Let's connect!</p>
+            <div class="contact-details">
+                <p><i class="fas fa-envelope"></i> nur_22011102@utp.edu.my</p>
+                <p><i class="fas fa-phone"></i> +6019-3669516</p>
+                <p><i class="fas fa-map-marker-alt"></i> Kuala Lumpur, Malaysia</p>
+            </div>
+            <a href="https://www.linkedin.com/in/nur-fathiah-aisha-ramniza-6504063ab" target="_blank" class="btn primary-btn font-weight-bold">Connect on LinkedIn</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Nur Fathiah Aisha. All Rights Reserved.</p>
+    </footer>
+
+</body>
+</html>
